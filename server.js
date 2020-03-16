@@ -1,6 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const postRoutes = require("./routes/post");
+const authRoutes = require("./routes/auth");
 const app = express();
 const mongoose = require("mongoose");
 const morgan = require("morgan");
@@ -11,6 +12,7 @@ app.use(morgan("tiny"));
 
 //routes middleware
 app.use("/api/post", postRoutes);
+app.use("/api/user", authRoutes);
 
 // connect to db
 mongoose.connect(
