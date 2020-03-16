@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
     password: hashPass
   });
   try {
-    const userSaved = await newUser.saved();
+    const userSaved = await newUser.save();
     res.status(201).send(userSaved);
   } catch (err) {
     res.status(400).send({ message: err });
@@ -37,8 +37,8 @@ router.post("/login", async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   // 2-Check for the email in the db
-  const emailExist = await User.findOne({ email: req.body.email });
-  if (!emailExist) return res.status(400).send("Email does not exits...");
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) return res.status(400).send("Email does not exits...");
 
   // 3- check if the password is correct
   const validPass = await bcrypt.compare(req.body.password, user.password);
