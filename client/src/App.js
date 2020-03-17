@@ -8,7 +8,6 @@ function App() {
     .then(data => {
       console.log(data);
     });
-
   return (
     <div>
       <h1>Zen Blog</h1>
