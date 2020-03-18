@@ -1,16 +1,14 @@
 import React from "react";
+import DataFeching from "./components/DataFetching";
 
 function App() {
-  fetch("http://localhost:8000/api/post")
-    .then(result => {
-      return result.json();
-    })
-    .then(data => {
-      console.log(data);
-    });
   return (
     <div>
-      <h1>Zen Blog</h1>
+      <h1 style={{ background: "blue", textAlign: "center", color: "white" }}>
+        Zen Blog
+      </h1>
+      <h2 style={{ textAlign: "center" }}>List of Post:</h2>
+      <DataFeching />
     </div>
   );
 }
