@@ -4,10 +4,8 @@ import DataFeching from "./components/DataFetching";
 function App() {
   return (
     <div>
-      <h1 style={{ background: "blue", textAlign: "center", color: "white" }}>
-        Zen Blog
-      </h1>
-      <h2 style={{ textAlign: "center" }}>List of Post:</h2>
+      <h2 className="center-align">Zen Blog</h2>
+      <h5 className="center-align">List of Post:</h5>
       <DataFeching />
     </div>
   );
